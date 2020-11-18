@@ -1,5 +1,6 @@
 # Jetson-Nano-Jetbot
 Jetson Nano Jetbot using some other electronic parts
+![](https://github.com/Phayuth/Jetson-Nano-Jetbot/blob/main/Robot.jpg?raw=true)
 ## Requirement
 ### Hardware
 1. 1 x [Nvidia Jetson Nano](https://cdn.antratek.nl/media/product/c93/nvidia-jetson-nano-developer-kit-945-13450-0000-100-fb6.jpg)
@@ -17,3 +18,21 @@ Jetson Nano Jetbot using some other electronic parts
 3. Insert the SD card into Jetson Nano
 4. Bootup the Jetson Nano
 ### Configuration
+On Jetson Terminal
+```
+$ sudo usermod -aG i2c jetbot
+$ i2cdetect -y -r i2cbus 1
+```
+The default PCA address should be 0X40. Thus we need to edit the address of the i2c in Adrafruit Library by Navigate to :
+```
+$ cd usr/local/lib/python
+$ sudo gedit Adrafruit
+```
+Search for def _ _init_ _ (self,addr=0x60,freq=1600,i2c=none,i2c_bus=none):\
+Change to def _ _init_ _ (self,addr=0x40,freq=1600,i2c=none,i2c_bus=none): and click save.
+### The Robot should be remotely controllable via accessing Jupyter Notebook on browser
+On another PC browser
+
+1. Open Browser url bar access https://{jetbot_ip_address}:8888
+2. Enter Jetbot Password "jetbot"
+3. All the Notebook are ready to use
