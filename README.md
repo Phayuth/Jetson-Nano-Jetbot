@@ -21,7 +21,7 @@ Jetson Nano Jetbot using some other electronic parts
 On Jetson Terminal
 ```
 $ sudo usermod -aG i2c jetbot
-$ i2cdetect -y -r i2cbus 1
+$ i2cdetect -y -r 1
 ```
 The default PCA address should be 0X40. Thus we need to edit the address of the i2c in Adrafruit Library by Navigate to :
 ```
