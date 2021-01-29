@@ -26,8 +26,8 @@ $ i2cdetect -y -r 1
 ```
 The default PCA address should be 0X40. Thus we need to edit the address of the i2c in Adrafruit Library by Navigate to :
 ```
-$ cd usr/local/lib/python
-$ sudo gedit Adrafruit
+$ cd usr/local/lib/python3.6/dist-packages/Adafruit_MotorHAT-1.4.0-py3.6.egg/Adafruit_MotorHAT
+$ sudo gedit Adrafruit_MotorHAT_Motors.py
 ```
 Search for def _ _init_ _ (self,addr=0x60,freq=1600,i2c=none,i2c_bus=none):\
 Change to def _ _init_ _ (self,addr=0x40,freq=1600,i2c=none,i2c_bus=none): and click save.
